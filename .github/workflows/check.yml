@@ -19,4 +19,7 @@ jobs:
           java-version: '17'
       - uses: actions/checkout@v4
       - name: Do Check
-        run: 'deno task check "${{ secrets.MODRINTH }}" "${{ secrets.GITHUB_TOKEN }}"'
+        run: 'deno task check'
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

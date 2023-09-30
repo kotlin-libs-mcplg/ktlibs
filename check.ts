@@ -1,5 +1,4 @@
 if (!import.meta.main) throw 'Unexpected execution'
-if (Deno.args.length < 2) throw 'No token pass'
 
 type Versions = Record<string, string>
 const versions_path = './versions.json'
