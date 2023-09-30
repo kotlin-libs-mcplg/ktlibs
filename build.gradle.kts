@@ -1,5 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import java.nio.file.Paths
 
 val kotlinVersion: String by properties
 val spigotVersion: String by properties

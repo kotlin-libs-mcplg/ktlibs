@@ -18,3 +18,5 @@ plugins {
 }
 
 include("kotlin-stdlib")
+
+rootProject.name = "ktlibs"
