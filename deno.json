@@ -1,0 +1,13 @@
+{
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 160,
+    "indentWidth": 4,
+    "semiColons": false,
+    "singleQuote": true
+  },
+  "tasks": {
+    "check": "deno run -A scripts/run.ts ./check.ts",
+    "merge": "deno run -A scripts/run.ts ./merge.ts"
+  }
+}
