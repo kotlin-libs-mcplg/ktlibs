@@ -1,7 +1,4 @@
 {
-  "compilerOptions": {
-    "strict": true
-  },
   "tasks": {
     "check": "deno run -A check.ts"
   }
