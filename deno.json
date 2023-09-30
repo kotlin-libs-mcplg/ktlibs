@@ -3,6 +3,6 @@
     "strict": true
   },
   "tasks": {
-    "check": "deno run check.ts"
+    "check": "deno run -A check.ts"
   }
 }
