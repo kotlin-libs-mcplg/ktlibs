@@ -20,4 +20,4 @@ jobs:
           cache: 'gradle'
       - uses: actions/checkout@v4
       - name: Do Check
-        run: 'deno task check "${{ secrets.MODRINTH_TOKEN }}" "${{ secrets.GITHUB_TOKEN }}"'
+        run: 'deno task check "${{ secrets.MODRINTH }}" "${{ secrets.GITHUB_TOKEN }}"'
