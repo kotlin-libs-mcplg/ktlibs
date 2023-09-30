@@ -1,0 +1,4 @@
+name: 'ktlibs.${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.for_spigot.KotlinStdlib
+load: STARTUP

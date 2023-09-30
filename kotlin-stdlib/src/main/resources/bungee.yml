@@ -1,0 +1,3 @@
+name: 'ktlibs.${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.for_bungee_cord.KotlinStdlib
