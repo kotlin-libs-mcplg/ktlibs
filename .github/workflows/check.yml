@@ -1,0 +1,23 @@
+name: Check versions
+
+on:
+  #schedule:
+  #  - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+      - uses: actions/checkout@v4
+      - name: Do Check
+        run: 'deno task check "${{ secrets.MODRINTH_TOKEN }}" "${{ secrets.GITHUB_TOKEN }}"'
