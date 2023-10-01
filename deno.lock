@@ -1,0 +1,43 @@
+{
+  "version": "2",
+  "remote": {},
+  "npm": {
+    "specifiers": {
+      "@types/semver@7.5": "@types/semver@7.5.3",
+      "fast-xml-parser@4.3": "fast-xml-parser@4.3.1",
+      "semver@7.5": "semver@7.5.4"
+    },
+    "packages": {
+      "@types/semver@7.5.3": {
+        "integrity": "sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==",
+        "dependencies": {}
+      },
+      "fast-xml-parser@4.3.1": {
+        "integrity": "sha512-viVv3xb8D+SiS1W4cv4tva3bni08kAkx0gQnWrykMM8nXPc1FxqZPU00dCEVjkiCg4HoXd2jC4x29Nzg/l2DAA==",
+        "dependencies": {
+          "strnum": "strnum@1.0.5"
+        }
+      },
+      "lru-cache@6.0.0": {
+        "integrity": "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==",
+        "dependencies": {
+          "yallist": "yallist@4.0.0"
+        }
+      },
+      "semver@7.5.4": {
+        "integrity": "sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==",
+        "dependencies": {
+          "lru-cache": "lru-cache@6.0.0"
+        }
+      },
+      "strnum@1.0.5": {
+        "integrity": "sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==",
+        "dependencies": {}
+      },
+      "yallist@4.0.0": {
+        "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==",
+        "dependencies": {}
+      }
+    }
+  }
+}
