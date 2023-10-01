@@ -17,8 +17,8 @@ jobs:
 
       - name: Do Check
         run: 'deno task check'
-        with:
-          github_actions: ${{ github.action }}
-          github_token: ${{ github.token }}
-          github_repository: ${{ github.repository }}
-          github_repository_owner: ${{ github.repository_owner }}
+        env:
+          input_github_actions: ${{ github.action }}
+          input_github_token: ${{ github.token }}
+          input_github_repository: ${{ github.repository }}
+          input_github_repository_owner: ${{ github.repository_owner }}
