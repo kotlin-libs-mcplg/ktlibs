@@ -35,6 +35,9 @@ if (versions_text != last_versions_text) {
     if (github_actions) {
         const octokit = github.getOctokit(github_token)
 
+        await exec.exec('git', ['config ', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
+        await exec.exec('git', ['config ', '--global', 'user.name', 'github-actions[bot]'])
+
         const id = ulid();
 
         const commit_msg = `sync(versions) ${id}`
