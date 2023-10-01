@@ -17,6 +17,8 @@ jobs:
 
       - name: Do Check
         run: 'deno task check'
-        env:
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          github_actions: ${{ github.action }}
+          github_token: ${{ github.token }}
+          github_repository: ${{ github.repository }}
+          github_repository_owner: ${{ github.repository_owner }}
