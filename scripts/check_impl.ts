@@ -37,7 +37,7 @@ if (versions_text != last_versions_text) {
 
         await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
         await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
-        await exec.exec('git', ['remote', 'set-url', 'origin', `https://x-access-token:${github_token}@github.com/${github_repository_owner}`])
+        await exec.exec('git', ['remote', 'set-url', 'origin', `https://x-access-token:${github_token}@github.com/${github_repository}`])
         await exec.exec('git', ['fetch', 'origin', 'main'])
 
         const id = ulid()
