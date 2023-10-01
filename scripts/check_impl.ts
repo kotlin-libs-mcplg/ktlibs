@@ -7,7 +7,17 @@ import { ulid } from 'npm:ulid@2.3'
 import { fetchXml } from './net.ts'
 import type { MavenMetadata, Project, Versions } from './types.ts'
 
-const github_actions = core.getBooleanInput('github_actions', { required: true })
+const github_actions = !!Deno.env.get('GITHUB_ACTION')
+const github_token = Deno.env.get('GITHUB_TOKEN')!
+const github_repository = Deno.env.get('GITHUB_REPOSITORY')!
+const github_repository_owner = Deno.env.get('GITHUB_REPOSITORY_OWNER')!
+
+console.log({
+    github_actions,
+    github_token,
+    github_repository,
+    github_repository_owner,
+})
 
 const versions_path = './versions.json'
 const projects_path = './projects.json'
@@ -23,10 +33,6 @@ await Promise.all(projects.map(check))
 const versions_text = JSON.stringify(versions, null, 2)
 if (versions_text != last_versions_text) {
     if (github_actions) {
-        const github_token = core.getInput('github_token', { required: true })
-        const github_repository = core.getInput('github_repository', { required: true })
-        const github_repository_owner = core.getInput('github_repository_owner', { required: true })
-
         const octokit = github.getOctokit(github_token)
 
         const branch_name = `sync(versions) ${ulid()}`
