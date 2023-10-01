@@ -34,11 +34,11 @@ const versions_text = JSON.stringify(versions, null, 2)
 if (versions_text != last_versions_text) {
     if (github_actions) {
         const octokit = github.getOctokit(github_token)
-        
+
         await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
         await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
 
-        const id = ulid();
+        const id = ulid()
 
         const commit_msg = `sync(versions) ${id}`
         const branch_name = `sync_versions_${id}`
@@ -48,7 +48,7 @@ if (versions_text != last_versions_text) {
         await Deno.writeTextFile(versions_path, '\n', { append: true })
 
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
-        await exec.exec('git', ['push', 'origin', `${branch_name}:${branch_name}`])
+        await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
         const head = await Deno.readTextFile('./.git/HEAD')
 
