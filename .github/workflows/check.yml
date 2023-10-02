@@ -12,7 +12,7 @@ jobs:
     outputs:
       versions_change: ${{ steps.check.outputs.versions_change }}
       branch_name: ${{ steps.check.outputs.branch_name }}
-      
+
     steps:
       - uses: actions/checkout@v4
 
@@ -38,4 +38,20 @@ jobs:
       - env:
           BRANCH_NAME: ${{ needs.check.outputs.branch_name }}
         run: echo "$BRANCH_NAME"
+
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.check.outputs.branch_name }}
+        
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Execute Gradle build
+        run: ./gradlew build
