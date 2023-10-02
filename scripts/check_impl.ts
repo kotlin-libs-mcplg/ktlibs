@@ -50,7 +50,7 @@ if (versions_text != last_versions_text) {
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
-        await octokit.rest.pulls.create({
+        const r = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: github_repository_owner,
             repo: github_repository.substring(0, github_repository_owner.length + 1),
             title: branch_name,
@@ -60,6 +60,7 @@ if (versions_text != last_versions_text) {
                 'X-GitHub-Api-Version': '2022-11-28',
             },
         })
+        console.log(r)
     } else {
         console.log(versions_text)
     }
