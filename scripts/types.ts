@@ -2,6 +2,7 @@ export type Versions = Record<string, string[]>
 
 export type Project = {
     name: string
+    verKey: string
     maven: string
     minVer: string
     modrinth: {

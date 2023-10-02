@@ -7,6 +7,7 @@
     "singleQuote": true
   },
   "tasks": {
-    "check": "deno run -A scripts/check.ts"
+    "check": "deno run -A scripts/check.ts",
+    "build_versions": "deno run -A scripts/build_versions.ts"
   }
 }

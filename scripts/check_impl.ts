@@ -4,8 +4,9 @@ import * as github from 'npm:@actions/github@5.1'
 // @deno-types="npm:@types/semver@7.5"
 import semver from 'npm:semver@7.5'
 import { ulid } from 'npm:ulid@2.3'
-import { fetchPost, fetchXml } from './net.ts'
+import { fetchXml } from './net.ts'
 import type { MavenMetadata, Project, Versions } from './types.ts'
+import { editVersion } from './edit_version.ts'
 
 const github_actions = !!Deno.env.get('GITHUB_ACTION')
 const github_token = Deno.env.get('GITHUB_TOKEN')!
@@ -47,6 +48,13 @@ if (versions_text != last_versions_text) {
         await Deno.writeTextFile(versions_path, versions_text)
         await Deno.writeTextFile(versions_path, '\n', { append: true })
 
+        for (const proj of projects) {
+            const vers = versions[proj.name]
+            if (vers.length == 0) continue
+            const last = vers[vers.length - 1]
+            await editVersion(proj.verKey, last)
+        }
+
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
@@ -71,7 +79,7 @@ async function check(proj: Project) {
     const maven_metadata = await fetchXml<MavenMetadata>(
         new URL('./maven-metadata.xml', proj.maven),
     )
-    const existing_versions = new Set(versions[proj.name] ?? [])
+    const existing_versions = new Set<string>()
     for (const version of maven_metadata.metadata.versioning.versions.version) {
         const ver = semver.coerce(version)
         if (ver == null || semver.valid(ver) == null) continue

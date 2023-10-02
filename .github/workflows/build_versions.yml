@@ -1,0 +1,34 @@
+name: Build Versions
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+    paths: ['/versions.json']
+  workflow_dispatch:
+
+jobs:
+  build_versions:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: "zulu"
+          java-version: "17"
+
+      - name: Do Build Versions
+        run: "deno task build_versions"
+        env:
+          GITHUB_ACTION: ${{ github.action }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH }}
