@@ -12,14 +12,20 @@ const octokit = github.getOctokit(github_token)
 const owner = github_repository_owner
 const repo = github_repository.substring(github_repository_owner.length + 1)
 
-const res = await octokit.rest.repos.merge({
+const res_pr = await octokit.rest.pulls.create({
     owner,
     repo,
+    title: commit_msg,
+    head: `${owner}:${branch_name}`,
     base: 'main',
-    head: branch_name,
-    commit_message: commit_msg,
 })
-const commit_sha = res.data.sha
+const res_pr_merge = await octokit.rest.pulls.merge({
+    owner,
+    repo,
+    pull_number: res_pr.data.number,
+})
+
+const commit_sha = res_pr_merge.data.sha
 
 core.setOutput('commit_sha', commit_sha)
 
