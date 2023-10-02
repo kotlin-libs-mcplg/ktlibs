@@ -55,7 +55,7 @@ if (versions_text != last_versions_text) {
         await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: github_repository_owner,
             repo,
-            title: branch_name,
+            title: commit_msg,
             head: `${github_repository_owner}:${branch_name}`,
             base: 'main',
             headers: {
