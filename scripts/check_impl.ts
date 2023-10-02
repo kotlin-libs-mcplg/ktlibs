@@ -1,6 +1,6 @@
 import * as core from 'npm:@actions/core@1.10'
 import * as exec from 'npm:@actions/exec@1.1'
-import * as github from 'npm:@actions/github@5.1'
+// import * as github from 'npm:@actions/github@5.1'
 // @deno-types="npm:@types/semver@7.5"
 import semver from 'npm:semver@7.5'
 import { ulid } from 'npm:ulid@2.3'
@@ -34,7 +34,7 @@ await Promise.all(projects.map(check))
 const versions_text = JSON.stringify(versions, null, 2)
 if (versions_text != last_versions_text) {
     if (github_actions) {
-        const octokit = github.getOctokit(github_token)
+        // const octokit = github.getOctokit(github_token)
 
         await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
         await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
@@ -58,18 +58,21 @@ if (versions_text != last_versions_text) {
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
-        const repo = github_repository.substring(github_repository_owner.length + 1)
+        // const repo = github_repository.substring(github_repository_owner.length + 1)
 
-        await octokit.request('POST /repos/{owner}/{repo}/pulls', {
-            owner: github_repository_owner,
-            repo,
-            title: commit_msg,
-            head: `${github_repository_owner}:${branch_name}`,
-            base: 'main',
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28',
-            },
-        })
+        core.setOutput('versions_change', true)
+        core.setOutput('branch_name', branch_name)
+
+        // await octokit.rest.pulls.create({
+        //     owner: github_repository_owner,
+        //     repo,
+        //     title: commit_msg,
+        //     head: `${github_repository_owner}:${branch_name}`,
+        //     base: 'main',
+        //     headers: {
+        //         'X-GitHub-Api-Version': '2022-11-28',
+        //     },
+        // })
     } else {
         console.log(versions_text)
     }
