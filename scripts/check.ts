@@ -40,7 +40,7 @@ if (versions_text != last_versions_text) {
 
         const id = ulid()
 
-        const time = `${now.getFullYear}_${now.getUTCMonth()}_${now.getUTCDate()}`
+        const time = `${now.getFullYear()}_${now.getUTCMonth()}_${now.getUTCDate()}`
 
         const commit_msg = `sync(versions) ${time} ${id}`
         const branch_name = `sync_versions_${time}_${id}`
