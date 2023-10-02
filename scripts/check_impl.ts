@@ -50,13 +50,11 @@ if (versions_text != last_versions_text) {
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
-        const head = await Deno.readTextFile('./.git/HEAD')
-
         await octokit.rest.pulls.create({
             owner: github_repository_owner,
             repo: github_repository.substring(0, github_repository_owner.length + 1),
             title: branch_name,
-            head: head,
+            head: `${github_repository_owner}:${branch_name}`,
             base: 'main',
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28',
