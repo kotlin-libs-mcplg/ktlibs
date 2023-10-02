@@ -31,40 +31,40 @@ core.info(`projects: ${projects.map((a) => a.name).join(', ')}`)
 await Promise.all(projects.map(check))
 
 const versions_text = JSON.stringify(versions, null, 2)
-if (versions_text != last_versions_text) {
-    if (github_actions) {
-        await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
-        await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
+if (github_actions) {
+    await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
+    await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
 
-        const now = new Date()
+    const now = new Date()
 
-        const id = ulid()
+    const id = ulid()
 
-        const time = `${now.getFullYear()}_${now.getUTCMonth()}_${now.getUTCDate()}`
+    const time = `${now.getFullYear()}_${now.getUTCMonth()}_${now.getUTCDate()}`
 
-        const commit_msg = `sync(versions) ${time}_${id}`
-        const branch_name = `sync_versions_${time}_${id}`
-        await exec.exec('git', ['checkout', '-b', branch_name])
+    const commit_msg = `sync(versions) ${time}_${id}`
+    const branch_name = `sync_versions_${time}_${id}`
+    await exec.exec('git', ['checkout', '-b', branch_name])
 
-        await Deno.writeTextFile(versions_path, versions_text)
-        await Deno.writeTextFile(versions_path, '\n', { append: true })
+    await Deno.writeTextFile(versions_path, versions_text)
+    await Deno.writeTextFile(versions_path, '\n', { append: true })
 
-        for (const proj of projects) {
-            const vers = versions[proj.name]
-            if (vers.length == 0) continue
-            const last = vers[vers.length - 1]
-            await editVersion(proj.verKey, last)
-        }
+    for (const proj of projects) {
+        const vers = versions[proj.name]
+        if (vers.length == 0) continue
+        const last = vers[vers.length - 1]
+        await editVersion(proj.verKey, last)
+    }
 
+    if ((await exec.getExecOutput('git', ['status', '--porcelain'])).stdout.trim() != '') {
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
         core.setOutput('versions_change', true)
         core.setOutput('branch_name', branch_name)
         core.setOutput('commit_msg', commit_msg)
-    } else {
-        console.log(versions_text)
     }
+} else {
+    console.log(versions_text)
 }
 
 async function check(proj: Project) {
