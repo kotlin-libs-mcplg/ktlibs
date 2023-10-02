@@ -42,7 +42,7 @@ if (versions_text != last_versions_text) {
 
         const time = `${now.getFullYear()}_${now.getUTCMonth()}_${now.getUTCDate()}`
 
-        const commit_msg = `sync(versions) ${time} ${id}`
+        const commit_msg = `sync(versions) ${time}_${id}`
         const branch_name = `sync_versions_${time}_${id}`
         await exec.exec('git', ['checkout', '-b', branch_name])
 
