@@ -28,9 +28,3 @@ const res_pr_merge = await octokit.rest.pulls.merge({
 const commit_sha = res_pr_merge.data.sha
 
 core.setOutput('commit_sha', commit_sha)
-
-await octokit.rest.git.deleteRef({
-    owner,
-    repo,
-    ref: branch_name,
-})
