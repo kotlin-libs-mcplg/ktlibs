@@ -33,7 +33,7 @@ await Promise.all(projects.map(check))
 const versions_text = JSON.stringify(versions, null, 2)
 if (versions_text != last_versions_text) {
     if (github_actions) {
-        // const octokit = github.getOctokit(github_token)
+        const octokit = github.getOctokit(github_token)
 
         await exec.exec('git', ['config', '--global', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
         await exec.exec('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
@@ -50,30 +50,18 @@ if (versions_text != last_versions_text) {
         await exec.exec('git', ['commit', '-a', '-m', commit_msg])
         await exec.exec('git', ['push', '-u', 'origin', branch_name])
 
-        const repo = github_repository.substring(0, github_repository_owner.length + 1)
-        await fetchPost(`https://api.github.com/repos/${github_repository_owner}/${repo}/pulls`, {
+        const repo = github_repository.substring(github_repository_owner.length + 1)
+
+        await octokit.request('POST /repos/{owner}/{repo}/pulls', {
+            owner: github_repository_owner,
+            repo,
+            title: branch_name,
+            head: `${github_repository_owner}:${branch_name}`,
+            base: 'main',
             headers: {
-                Accept: 'application/vnd.github+json',
-                Authorization: `Bearer ${github_token}`,
                 'X-GitHub-Api-Version': '2022-11-28',
             },
-            body: JSON.stringify({
-                title: branch_name,
-                head: `${github_repository_owner}:${branch_name}`,
-                base: 'main',
-            }),
         })
-
-        // const r = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
-        //     owner: github_repository_owner,
-        //     repo: github_repository.substring(0, github_repository_owner.length + 1),
-        //     title: branch_name,
-        //     head: `${github_repository_owner}:${branch_name}`,
-        //     base: 'main',
-        //     headers: {
-        //         'X-GitHub-Api-Version': '2022-11-28',
-        //     },
-        // })
     } else {
         console.log(versions_text)
     }
