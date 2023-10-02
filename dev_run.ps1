@@ -1,2 +1,2 @@
 $env:INPUT_GITHUB_ACTIONS = 'false'
-deno task check
+deno task $args[0]
