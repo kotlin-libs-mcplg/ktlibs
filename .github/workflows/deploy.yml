@@ -10,13 +10,9 @@ on:
         type: string
         default: "main"
         required: true
-      project:
+      item:
         type: string
-        default: "kotlin-stdlib"
-        required: true
-      version:
-        type: string
-        default: "1.9.10"
+        default: "kotlin-stdlib:1.9.10"
         required: true
 
   workflow_dispatch:
@@ -25,13 +21,9 @@ on:
         type: string
         default: "main"
         required: true
-      project:
+      item:
         type: string
-        default: "kotlin-stdlib"
-        required: true
-      version:
-        type: string
-        default: "1.9.10"
+        default: "kotlin-stdlib:1.9.10"
         required: true
 
 jobs:
@@ -41,9 +33,8 @@ jobs:
     steps:
       - env:
           COMMIT_REF: ${{ inputs.commit-ref }}
-          PROJECT: ${{ inputs.project }}
-          VERSION: ${{ inputs.version }}
-        run: echo "$COMMIT_REF ; $PROJECT ; $VERSION"
+          PROJECT_AND_VERSION: ${{ inputs.item }}
+        run: echo "$COMMIT_REF ; $PROJECT_AND_VERSION"
 
       - uses: actions/checkout@v4
         with:

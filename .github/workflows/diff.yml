@@ -50,5 +50,4 @@ jobs:
       modrinth-token: ${{ secrets.modrinth-token || secrets.MODRINTH }}
     with:
       commit-ref: ${{ inputs.commit-ref }}
-      project: ${{ matrix.project }}
-      version: ${{ matrix.version }}
+      item: ${{ matrix.item }}

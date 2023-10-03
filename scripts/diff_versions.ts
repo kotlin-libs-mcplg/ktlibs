@@ -19,9 +19,7 @@ core.setOutput('vers', new_versions)
 core.info(JSON.stringify(new_versions, null, 2))
 
 const matrix = {
-    project: [],
-    version: [],
-    include: Object.entries(new_versions).flatMap(([k, v]) => v.map((v) => ({ project: k, version: v }))),
+    item:  Object.entries(new_versions).flatMap(([k, v]) => v.map((v) => `${k}:${v}`)),
 }
 
 core.setOutput('matrix', matrix)
