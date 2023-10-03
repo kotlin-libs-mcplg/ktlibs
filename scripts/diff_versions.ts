@@ -1,5 +1,5 @@
 import * as core from 'npm:@actions/core@1.10'
-import { ModrinthProject, ModrinthVersion, Project, Versions } from './types.ts'
+import { ModrinthVersion, Project, Versions } from './types.ts'
 import { fetchJson } from './net.ts'
 
 const modrinth_token = Deno.env.get('MODRINTH_TOKEN')!
@@ -11,9 +11,9 @@ const projects_path = './projects.json'
 const versions: Versions = JSON.parse(await Deno.readTextFile(versions_path))
 const projects: Project[] = JSON.parse(await Deno.readTextFile(projects_path))
 
-await Promise.all(projects.map(diff))
-
 const new_versions: Versions = {}
+
+await Promise.all(projects.map(diff))
 
 core.setOutput('vers', new_versions)
 core.info(JSON.stringify(new_versions, null, 2))
