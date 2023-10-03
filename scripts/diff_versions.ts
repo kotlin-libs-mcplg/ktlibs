@@ -1,5 +1,5 @@
 import * as core from 'npm:@actions/core@1.10'
-import { ModrinthVersion, Project, Versions } from './types.ts'
+import { ModrinthProject, ModrinthVersion, Project, Versions } from './types.ts'
 import { fetchJson } from './net.ts'
 
 const modrinth_token = Deno.env.get('MODRINTH_TOKEN')!
@@ -18,13 +18,19 @@ const new_versions: Versions = {}
 core.setOutput('vers', new_versions)
 core.info(JSON.stringify(new_versions, null, 2))
 
-async function diff(proj: Project) {
-    const vers = await fetchJson<ModrinthVersion[]>(`https://api.modrinth.com/v2/project/${proj.modrinth.id}/version`, {
+async function fetchModrinth<T>(url: URL | Request | string, init?: RequestInit): Promise<T> {
+    return await fetchJson<T>(url, {
+        ...init,
         headers: {
+            ...init?.headers,
             Authorization: modrinth_token,
             'User-Agent': github_repository,
         },
     })
+}
+
+async function diff(proj: Project) {
+    const vers = await fetchModrinth<ModrinthVersion[]>(`https://api.modrinth.com/v2/project/${proj.modrinth.id}/version`)
     core.info(JSON.stringify(vers, null, 2))
 
     const proj_vers = versions[proj.name]

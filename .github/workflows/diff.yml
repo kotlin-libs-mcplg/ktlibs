@@ -34,5 +34,5 @@ jobs:
         run: "deno task diff_versions"
         env:
           GITHUB_ACTION: ${{ github.action }}
-          MODRINTH_TOKEN: ${{ secrets.modrinth-token }}
+          MODRINTH_TOKEN: ${{ secrets.modrinth-token || secrets.MODRINTH }}
           GITHUB_REPOSITORY: ${{ github.repository }}
