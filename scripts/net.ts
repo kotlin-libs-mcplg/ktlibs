@@ -33,3 +33,9 @@ export async function fetchXml<T>(url: URL | Request | string, init?: RequestIni
     const parser = new XMLParser()
     return parser.parse(text)
 }
+
+export async function fetchJson<T>(url: URL | Request | string, init?: RequestInit): Promise<T> {
+    const res = await fetchGet(url, init)
+    const text = await res.text()
+    return JSON.parse(text)
+}

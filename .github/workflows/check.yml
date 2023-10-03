@@ -81,3 +81,24 @@ jobs:
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           BRANCH_NAME: ${{ needs.check.outputs.branch_name }}
           COMMIT_MSG: ${{ needs.check.outputs.commit_msg }}
+
+  diff_versions:
+    runs-on: ubuntu-latest
+
+    needs: [merge]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.merge.outputs.commit_sha }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - id: diff_versions
+        name: Diff versions
+        run: "deno task diff_versions"
+        env:
+          GITHUB_ACTION: ${{ github.action }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH }}
+          GITHUB_REPOSITORY: ${{ github.repository }}

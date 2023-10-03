@@ -8,6 +8,7 @@
   },
   "tasks": {
     "check": "deno run -A scripts/run.ts ./check.ts",
-    "merge": "deno run -A scripts/run.ts ./merge.ts"
+    "merge": "deno run -A scripts/run.ts ./merge.ts",
+    "diff_versions": "deno run -A scripts/run.ts ./diff_versions.ts"
   }
 }
