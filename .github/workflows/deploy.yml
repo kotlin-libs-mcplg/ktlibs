@@ -1,0 +1,48 @@
+name: Deploy to modrinth
+
+on:
+  workflow_call:
+    secrets:
+      modrinth-token:
+        required: true
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
+      project:
+        type: string
+        default: "kotlin-stdlib"
+        required: true
+      version:
+        type: string
+        default: "1.9.10"
+        required: true
+
+  workflow_dispatch:
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
+      project:
+        type: string
+        default: "kotlin-stdlib"
+        required: true
+      version:
+        type: string
+        default: "1.9.10"
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit-ref }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
