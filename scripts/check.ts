@@ -5,7 +5,7 @@ import semver from 'npm:semver@7.5'
 import { ulid } from 'npm:ulid@2.3'
 import { fetchXml } from './net.ts'
 import type { MavenMetadata, Project, Versions } from './types.ts'
-import { editVersion } from './edit_version.ts'
+import { editVersions } from './edit_versions.ts'
 
 const github_actions = !!Deno.env.get('GITHUB_ACTION')
 const github_token = Deno.env.get('GITHUB_TOKEN')!
@@ -52,7 +52,7 @@ if (github_actions) {
         const vers = versions[proj.name]
         if (vers.length == 0) continue
         const last = vers[vers.length - 1]
-        await editVersion(proj.verKey, last)
+        await editVersions(new Map([[proj.verKey, last]]))
     }
 
     if ((await exec.getExecOutput('git', ['status', '--porcelain'])).stdout.trim() != '') {
