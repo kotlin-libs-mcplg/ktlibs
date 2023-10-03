@@ -1,12 +1,7 @@
 import * as core from 'npm:@actions/core@1.10'
 import { Project } from './types.ts'
 import { editVersions } from './edit_versions.ts'
-
-const project_and_version = Deno.env.get('PROJECT_AND_VERSION')!
-
-const split_at = project_and_version.indexOf('')
-const project = project_and_version.substring(0, split_at)
-const version = project_and_version.substring(split_at + 1)
+import { project, version } from './get_project_and_version.ts'
 
 core.info(`project: ${project}; ${version}: version`)
 
