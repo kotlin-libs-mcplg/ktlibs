@@ -85,7 +85,7 @@ jobs:
   diff_versions:
     needs: [merge]
 
-    uses: ./.github/workflows/diff
+    uses: ./.github/workflows/diff.yml
     secrets:
       modrinth-token: ${{ secrets.MODRINTH }}
     with:
