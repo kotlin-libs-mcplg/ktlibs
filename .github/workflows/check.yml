@@ -34,32 +34,12 @@ jobs:
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
 
   build:
-    runs-on: ubuntu-latest
-
-    needs: check
+    needs: [check]
     if: needs.check.outputs.versions_change
 
-    steps:
-      - env:
-          BRANCH_NAME: ${{ needs.check.outputs.branch_name }}
-        run: echo "$BRANCH_NAME"
-
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.check.outputs.branch_name }}
-
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: "zulu"
-          java-version: "17"
-          cache: "gradle"
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      - name: Execute Gradle build
-        run: ./gradlew build
+    uses: ./.github/workflows/build.yml
+    with:
+      commit-ref: ${{ needs.check.outputs.branch_name }}
 
   merge:
     runs-on: ubuntu-latest

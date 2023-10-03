@@ -2,11 +2,21 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_call:
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
   workflow_dispatch:
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
 
 jobs:
   build:
@@ -14,13 +24,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit-ref || github.ref }}
 
       - name: Setup Java JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
-          java-version: '17'
-          cache: 'gradle'
+          distribution: "zulu"
+          java-version: "17"
+          cache: "gradle"
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
