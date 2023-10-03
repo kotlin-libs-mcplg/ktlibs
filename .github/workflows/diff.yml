@@ -1,0 +1,38 @@
+name: Diff versions
+
+on:
+  workflow_call:
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
+    secrets:
+      modrinth-token:
+        required: true
+  workflow_dispatch:
+    inputs:
+      commit-ref:
+        type: string
+        default: "main"
+        required: true
+
+jobs:
+  diff_versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit-ref }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - id: diff_versions
+        name: Diff versions
+        run: "deno task diff_versions"
+        env:
+          GITHUB_ACTION: ${{ github.action }}
+          MODRINTH_TOKEN: ${{ secrets.modrinth-token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}

@@ -88,17 +88,8 @@ jobs:
     needs: [merge]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/diff
+        secrets:
+          modrinth-token: ${{ secrets.MODRINTH }}
         with:
-          ref: ${{ needs.merge.outputs.commit_sha }}
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
-
-      - id: diff_versions
-        name: Diff versions
-        run: "deno task diff_versions"
-        env:
-          GITHUB_ACTION: ${{ github.action }}
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          commit-ref: ${{ needs.merge.outputs.commit_sha }}
