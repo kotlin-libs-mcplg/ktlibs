@@ -39,10 +39,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - env:
+          COMMIT_REF: ${{ inputs.commit-ref }}
+          PROJECT: ${{ inputs.project }}
+          VERSION: ${{ inputs.version }}
+        run: echo "$COMMIT_REF ; $PROJECT ; $VERSION"
+
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.commit-ref }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
-

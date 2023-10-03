@@ -21,6 +21,10 @@ jobs:
   diff_versions:
     runs-on: ubuntu-latest
 
+    outputs:
+      vers: ${{ steps.diff_versions.outputs.vers }}
+      matrix: ${{ steps.diff_versions.outputs.matrix }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,3 +40,15 @@ jobs:
           GITHUB_ACTION: ${{ github.action }}
           MODRINTH_TOKEN: ${{ secrets.modrinth-token || secrets.MODRINTH }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+
+  deploy:
+    needs: [diff_versions]
+    uses: ./.github/workflows/deploy.yml
+    strategy:
+      matrix: ${{ fromJSON(needs.diff_versions.outputs.matrix) }}
+    secrets:
+      modrinth-token: ${{ secrets.modrinth-token || secrets.MODRINTH }}
+    with:
+      commit-ref: ${{ inputs.commit-ref }}
+      project: ${{ matrix.project }}
+      version: ${{ matrix.version }}

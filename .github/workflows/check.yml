@@ -3,6 +3,10 @@ name: Check versions
 on:
   #schedule:
   #  - cron: '0 0 * * *'
+  workflow_call:
+    secrets:
+      modrinth-token:
+        required: true
   workflow_dispatch:
 
 jobs:
@@ -87,6 +91,6 @@ jobs:
 
     uses: ./.github/workflows/diff.yml
     secrets:
-      modrinth-token: ${{ secrets.MODRINTH }}
+      modrinth-token: ${{ secrets.modrinth-token || secrets.MODRINTH }}
     with:
       commit-ref: ${{ needs.merge.outputs.commit_sha }}

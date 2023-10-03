@@ -18,6 +18,14 @@ await Promise.all(projects.map(diff))
 core.setOutput('vers', new_versions)
 core.info(JSON.stringify(new_versions, null, 2))
 
+const matrix = {
+    project: [],
+    version: [],
+    include: Object.entries(new_versions).flatMap(([k, v]) => v.map((v) => ({ project: k, version: v }))),
+}
+
+core.setOutput('matrix', matrix)
+
 async function fetchModrinth<T>(url: URL | Request | string, init?: RequestInit): Promise<T> {
     return await fetchJson<T>(url, {
         ...init,
