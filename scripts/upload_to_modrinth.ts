@@ -1,4 +1,3 @@
-// import { readonlyBlobFromFsFile } from './blob.ts'
 import { project, version } from './get_project_and_version.ts'
 import { getLoaders, getProjects } from './meta.ts'
 import { fetchModrinth } from './modrinth.ts'
@@ -15,7 +14,7 @@ const proj = projects.find((a) => a.name == project)!
 
 const raw_game_versions = await fetchModrinth<ModrinthGameVersion[]>('https://api.modrinth.com/v2/tag/game_version')
 
-const game_versions = raw_game_versions.filter((a) => a.major)
+const game_versions = raw_game_versions.filter((a) => a.major && a.version_type == 'release')
 
 const create_version_data = buildFormData({
     data: {
@@ -35,9 +34,6 @@ const create_version_data = buildFormData({
 })
 const file = await Deno.readFile(`${os.homedir()}/artifact/${artifact_name}/${jar_name}`)
 create_version_data.set(jar_name, new Blob([file]), jar_name)
-
-// const file = await readonlyBlobFromFsFile(jar_name, `${os.homedir()}/artifact/${artifact_name}/${jar_name}`, 'application/java-archive')
-// create_version_data.set(jar_name, file, jar_name)
 
 await fetchModrinth<ModrinthVersion>('https://api.modrinth.com/v2/version', {
     method: 'POST',
