@@ -1,3 +1,7 @@
+export type Meta = {
+    build_output_prefix: string
+}
+
 export type Versions = Record<string, string[]>
 
 export type Project = {

@@ -39,7 +39,7 @@ if (github_actions) {
 
     const id = ulid()
 
-    const time = `${now.getFullYear()}_${now.getUTCMonth()}_${now.getUTCDate()}`
+    const time = `${now.getFullYear()}_${now.getUTCMonth() + 1}_${now.getUTCDate()}`
 
     const commit_msg = `sync(versions) ${time}_${id}`
     const branch_name = `sync_versions_${time}_${id}`

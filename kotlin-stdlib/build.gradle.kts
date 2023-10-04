@@ -1,6 +1,6 @@
 val kotlinVersion: String by properties
 
-version = "$kotlinVersion-test.0"
+version = kotlinVersion
 
 dependencies {
     api(kotlin("stdlib", kotlinVersion))

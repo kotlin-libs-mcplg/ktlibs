@@ -31,7 +31,7 @@ allprojects {
     }
 
     tasks {
-        val theArchiveBaseName = "ktlibs.${project.name}"
+        val theArchiveBaseName = "ktlibs-${project.name}"
 
         jar {
             archiveBaseName = theArchiveBaseName
