@@ -11,6 +11,7 @@
     "merge": "deno run -A scripts/run.ts ./merge.ts",
     "diff_versions": "deno run -A scripts/run.ts ./diff_versions.ts",
     "ready_deploy": "deno run -A scripts/run.ts ./ready_deploy.ts",
-    "deploy_build": "deno run -A scripts/run.ts ./deploy_build.ts"
+    "deploy_build": "deno run -A scripts/run.ts ./deploy_build.ts",
+    "upload_to_modrinth": "deno run -A scripts/run.ts ./upload_to_modrinth.ts"
   }
 }
