@@ -3,6 +3,7 @@ import { project, version } from './get_project_and_version.ts'
 import { getLoaders, getProjects } from './meta.ts'
 import { fetchModrinth } from './modrinth.ts'
 import { buildFormData } from './net.ts'
+import os from 'node:os'
 import type { ModrinthGameVersion, ModrinthVersion } from './types.ts'
 
 const artifact_name = Deno.env.get('ARTIFACT_NAME')!
@@ -33,7 +34,7 @@ const create_version_data = buildFormData({
     },
 })
 
-const file = await readonlyBlobFromFsFile(jar_name, `~/artifact/${artifact_name}/${jar_name}`, 'application/java-archive')
+const file = await readonlyBlobFromFsFile(jar_name, `${os.homedir()}/artifact/${artifact_name}/${jar_name}`, 'application/java-archive')
 create_version_data.append(jar_name, file, jar_name)
 
 await fetchModrinth<ModrinthVersion>('https://api.modrinth.com/v2/version', {

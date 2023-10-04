@@ -6,6 +6,7 @@
       "npm:@actions/core@1.10": "npm:@actions/core@1.10.1",
       "npm:@actions/exec@1.1": "npm:@actions/exec@1.1.1",
       "npm:@actions/github@5.1": "npm:@actions/github@5.1.1_@octokit+core@3.6.0",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:@types/semver@7.5": "npm:@types/semver@7.5.3",
       "npm:fast-xml-parser@4.3": "npm:fast-xml-parser@4.3.1",
       "npm:semver@7.5": "npm:semver@7.5.4",
@@ -130,6 +131,10 @@
         "dependencies": {
           "@octokit/openapi-types": "@octokit/openapi-types@12.11.0"
         }
+      },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
       },
       "@types/semver@7.5.3": {
         "integrity": "sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==",
