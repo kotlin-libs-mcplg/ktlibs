@@ -1,4 +1,4 @@
-import { readonlyBlobFromFsFile } from './blob.ts'
+// import { readonlyBlobFromFsFile } from './blob.ts'
 import { project, version } from './get_project_and_version.ts'
 import { getLoaders, getProjects } from './meta.ts'
 import { fetchModrinth } from './modrinth.ts'
@@ -33,9 +33,11 @@ const create_version_data = buildFormData({
         primary_file: jar_name,
     },
 })
+const file = await Deno.readFile(`${os.homedir()}/artifact/${artifact_name}/${jar_name}`)
+create_version_data.set(jar_name, new Blob([file]), jar_name)
 
-const file = await readonlyBlobFromFsFile(jar_name, `${os.homedir()}/artifact/${artifact_name}/${jar_name}`, 'application/java-archive')
-create_version_data.append(jar_name, file, jar_name)
+// const file = await readonlyBlobFromFsFile(jar_name, `${os.homedir()}/artifact/${artifact_name}/${jar_name}`, 'application/java-archive')
+// create_version_data.set(jar_name, file, jar_name)
 
 await fetchModrinth<ModrinthVersion>('https://api.modrinth.com/v2/version', {
     method: 'POST',
