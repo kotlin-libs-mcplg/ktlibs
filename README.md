@@ -7,6 +7,11 @@ Check for updates regularly every day
 [![Check versions](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/check.yml/badge.svg)](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/check.yml)
 [![Build](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/build.yml/badge.svg)](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/build.yml)
 
+# Projects
+
+- `kotlin-stdlib`  
+  https://modrinth.com/plugin/ktlibs-kotlin-stdlib
+
 # For players
 
 You only need to download this plugin if other plugins depend on it
