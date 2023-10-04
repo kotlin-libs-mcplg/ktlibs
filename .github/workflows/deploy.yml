@@ -30,6 +30,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    outputs:
+      artifact_name: ${{ steps.deploy_build.outputs.artifact_name }}
+      artifact_path: ${{ steps.deploy_build.outputs.artifact_path }}
+
     steps:
       - env:
           COMMIT_REF: ${{ inputs.commit-ref }}
@@ -64,3 +68,8 @@ jobs:
         run: "deno task deploy_build"
         env:
           PROJECT_AND_VERSION: ${{ inputs.item }}
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.deploy_build.outputs.artifact_name }}
+          path: ${{ steps.deploy_build.outputs.artifact_path }}
