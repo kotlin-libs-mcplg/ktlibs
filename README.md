@@ -4,8 +4,8 @@ Spigot plugin for kotlin related libraries
 
 Check for updates regularly every day
 
-[![Check versions](https://github.com/2A5F/kotlin-libs-mcplg/actions/workflows/check.yml/badge.svg)](https://github.com/2A5F/kotlin-libs-mcplg/actions/workflows/check.yml)
-[![Build](https://github.com/2A5F/kotlin-libs-mcplg/actions/workflows/build.yml/badge.svg)](https://github.com/2A5F/kotlin-libs-mcplg/actions/workflows/build.yml)
+[![Check versions](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/check.yml/badge.svg)](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/check.yml)
+[![Build](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/build.yml/badge.svg)](https://github.com/kotlin-libs-mcplg/ktlibs/actions/workflows/build.yml)
 
 # For players
 
