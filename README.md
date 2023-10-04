@@ -12,7 +12,7 @@ Check for updates regularly every day
 - `kotlin-stdlib`  
   https://modrinth.com/plugin/ktlibs-kotlin-stdlib
 
-# For players
+# For players / server manager / users
 
 You only need to download this plugin if other plugins depend on it
 
