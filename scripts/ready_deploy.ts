@@ -1,5 +1,5 @@
 import * as core from 'npm:@actions/core@1.10'
-import { Project } from './types.ts'
+import type { Project } from './types.ts'
 import { editVersions } from './edit_versions.ts'
 import { project, version } from './get_project_and_version.ts'
 

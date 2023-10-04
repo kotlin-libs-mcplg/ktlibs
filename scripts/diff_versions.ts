@@ -1,9 +1,6 @@
 import * as core from 'npm:@actions/core@1.10'
-import { ModrinthVersion, Project, Versions } from './types.ts'
-import { fetchJson } from './net.ts'
-
-const modrinth_token = Deno.env.get('MODRINTH_TOKEN')!
-const github_repository = Deno.env.get('GITHUB_REPOSITORY')!
+import type { ModrinthVersion, Project, Versions } from './types.ts'
+import { fetchModrinth } from './modrinth.ts'
 
 const versions_path = './versions.json'
 const projects_path = './projects.json'
@@ -19,21 +16,10 @@ core.setOutput('vers', new_versions)
 core.info(JSON.stringify(new_versions, null, 2))
 
 const matrix = {
-    item:  Object.entries(new_versions).flatMap(([k, v]) => v.map((v) => `${k}:${v}`)),
+    item: Object.entries(new_versions).flatMap(([k, v]) => v.map((v) => `${k}:${v}`)),
 }
 
 core.setOutput('matrix', matrix)
-
-async function fetchModrinth<T>(url: URL | Request | string, init?: RequestInit): Promise<T> {
-    return await fetchJson<T>(url, {
-        ...init,
-        headers: {
-            ...init?.headers,
-            Authorization: modrinth_token,
-            'User-Agent': github_repository,
-        },
-    })
-}
 
 async function diff(proj: Project) {
     const vers = await fetchModrinth<ModrinthVersion[]>(`https://api.modrinth.com/v2/project/${proj.modrinth.id}/version`)

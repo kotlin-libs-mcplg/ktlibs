@@ -7,6 +7,7 @@ export type Versions = Record<string, string[]>
 export type Project = {
     name: string
     verKey: string
+    verName: string
     maven: string
     minVer: string
     modrinth: {
@@ -113,4 +114,11 @@ export type ModrinthFile = {
     primary: boolean
     size: number
     file_type?: 'required-resource-pack' | 'optional-resource-pack'
+}
+
+export type ModrinthGameVersion = {
+    version: string
+    version_type: 'release' | 'snapshot' | 'alpha' | 'beta'
+    date: string
+    major: boolean
 }

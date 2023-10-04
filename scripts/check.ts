@@ -6,6 +6,7 @@ import { ulid } from 'npm:ulid@2.3'
 import { fetchXml } from './net.ts'
 import type { MavenMetadata, Project, Versions } from './types.ts'
 import { editVersions } from './edit_versions.ts'
+import { getProjects, versions_path } from './meta.ts'
 
 const github_actions = !!Deno.env.get('GITHUB_ACTION')
 const github_token = Deno.env.get('GITHUB_TOKEN')!
@@ -19,12 +20,9 @@ console.log({
     github_repository_owner,
 })
 
-const versions_path = './versions.json'
-const projects_path = './projects.json'
-
 const last_versions_text = await Deno.readTextFile(versions_path)
 const versions: Versions = JSON.parse(last_versions_text)
-const projects: Project[] = JSON.parse(await Deno.readTextFile(projects_path))
+const projects: Project[] = await getProjects()
 
 core.info(`projects: ${projects.map((a) => a.name).join(', ')}`)
 
