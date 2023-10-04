@@ -1,8 +1,8 @@
 name: Check versions
 
 on:
-  #schedule:
-  #  - cron: '0 0 * * *'
+  schedule:
+    - cron: '0 0 * * *'
   workflow_call:
     secrets:
       modrinth-token:
