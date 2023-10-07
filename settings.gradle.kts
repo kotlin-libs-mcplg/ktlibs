@@ -21,3 +21,4 @@ rootProject.name = "ktlibs"
 
 include("kotlin-stdlib")
 include("kotlinx-coroutines-core")
+include("kotlinx-serialization")

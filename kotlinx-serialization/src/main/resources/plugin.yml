@@ -1,6 +1,7 @@
 name: 'ktlibs-${name}'
 version: '${version}'
-main: io.coplt.mcplg.ktlibs.kotlinx_coroutines_core.BungeeCordEntryPoint
+main: io.coplt.mcplg.ktlibs.kotlinx_serialization.BukkitEntryPoint
+load: STARTUP
 author: kotlin-libs-mcplg
-depends:
+depend:
   - 'ktlibs-kotlin-stdlib'

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kotlin-stdlib" />
             <option value="$PROJECT_DIR$/kotlinx-coroutines-core" />
+            <option value="$PROJECT_DIR$/kotlinx-serialization" />
           </set>
         </option>
       </GradleProjectSettings>
