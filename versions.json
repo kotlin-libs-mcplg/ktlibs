@@ -13,5 +13,14 @@
   ],
   "kotlin-reflect": [
     "1.9.10"
+  ],
+  "kotlinx-atomicfu": [
+    "0.22.0"
+  ],
+  "kotlinx-collections-immutable": [
+    "0.3.6"
+  ],
+  "kotlinx-io": [
+    "0.3.0"
   ]
 }
