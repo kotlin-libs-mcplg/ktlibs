@@ -1,0 +1,7 @@
+{
+  "id": "ktlibs-${name}",
+  "name": "ktlibs_${name}",
+  "version": "${version}",
+  "main": "io.coplt.mcplg.ktlibs.for_velocity.KotlinStdlib",
+  "authors": ["kotlin-libs-mcplg"]
+}

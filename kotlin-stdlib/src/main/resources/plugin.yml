@@ -1,4 +1,5 @@
-name: 'ktlibs.${name}'
+name: 'ktlibs-${name}'
 version: '${version}'
 main: io.coplt.mcplg.ktlibs.for_spigot.KotlinStdlib
 load: STARTUP
+author: kotlin-libs-mcplg

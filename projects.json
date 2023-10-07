@@ -4,7 +4,7 @@
     "verKey": "kotlinVersion",
     "verName": "Ktlibs Kotlin Stdlib",
     "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/",
-    "minVer": "1.8.0",
+    "minVer": "1.9.10",
     "modrinth": {
       "id": "b06Uh6mW"
     }

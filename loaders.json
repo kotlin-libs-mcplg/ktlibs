@@ -1,5 +1,10 @@
 [
     "bukkit",
     "bungeecord",
-    "spigot"
+    "spigot",
+    "folia",
+    "paper",
+    "purpur",
+    "velocity",
+    "waterfall"
 ]
