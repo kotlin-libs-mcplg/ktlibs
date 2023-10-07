@@ -1,5 +1,5 @@
 name: 'ktlibs-${name}'
 version: '${version}'
-main: io.coplt.mcplg.ktlibs.for_spigot.KotlinStdlib
+main: io.coplt.mcplg.ktlibs.kotlin_stdlib.BukkitEntryPoint
 load: STARTUP
 author: kotlin-libs-mcplg

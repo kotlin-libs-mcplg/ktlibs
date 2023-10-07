@@ -1,4 +1,4 @@
 name: 'ktlibs-${name}'
 version: '${version}'
-main: io.coplt.mcplg.ktlibs.for_bungee_cord.KotlinStdlib
+main: io.coplt.mcplg.ktlibs.kotlin_stdlib.BungeeCordEntryPoint
 author: kotlin-libs-mcplg

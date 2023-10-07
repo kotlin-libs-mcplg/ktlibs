@@ -2,6 +2,6 @@
   "id": "ktlibs-${name}",
   "name": "ktlibs_${name}",
   "version": "${version}",
-  "main": "io.coplt.mcplg.ktlibs.for_velocity.KotlinStdlib",
+  "main": "io.coplt.mcplg.ktlibs.kotlin_stdlib.CommonEntryPoint",
   "authors": ["kotlin-libs-mcplg"]
 }
