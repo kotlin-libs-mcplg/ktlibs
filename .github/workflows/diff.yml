@@ -44,7 +44,7 @@ jobs:
 
   deploy:
     needs: [diff_versions]
-    if: needs.diff_versions.outputs.need_deploy
+    if: !!needs.diff_versions.outputs.need_deploy
     uses: ./.github/workflows/deploy.yml
     strategy:
       matrix: ${{ fromJSON(needs.diff_versions.outputs.matrix) }}
