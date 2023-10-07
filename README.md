@@ -78,6 +78,9 @@ Auto sync versions every day (UTC)
   [![](https://img.shields.io/badge/-Ktlibs_Ktorm-16181c?logo=modrinth&logoColor=46d66d&labelColor=16181c)](https://modrinth.com/mod/ktlibs-ktorm)
   ![](https://img.shields.io/modrinth/v/ktlibs-ktorm)
 
+  https://www.ktorm.org/  
+  https://github.com/kotlin-orm/ktorm
+
   - [ktorm-core](https://central.sonatype.com/artifact/org.ktorm/ktorm-core)
   - [ktorm-support-sqlite](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-sqlite)
   - [ktorm-support-postgresql](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-postgresql)
