@@ -14,7 +14,7 @@ Auto sync versions every day (UTC)
 - `kotlinx-coroutines-core`  
   https://modrinth.com/plugin/ktlibs-kotlinx-coroutines-core
 - `kotlinx-serialization`  
-  https://modrinth.com/plugin/kotlinx-serialization  
+  https://modrinth.com/plugin/ktlibs-kotlinx-serialization  
   included
   - `kotlinx-serialization-core`
   - `kotlinx-serialization-json`
