@@ -1,6 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
-val kotlinVersion: String by properties
 val kotlinxCoroutinesVersion: String by properties
 
 version = kotlinxCoroutinesVersion
@@ -12,8 +11,8 @@ dependencies {
 tasks {
     named<ShadowJar>("shadowJar") {
         dependencies {
-            include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinxCoroutinesVersion"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"))
         }
     }
 }

@@ -20,5 +20,8 @@ plugins {
 rootProject.name = "ktlibs"
 
 include("kotlin-stdlib")
+include("kotlin-reflect")
 include("kotlinx-coroutines-core")
 include("kotlinx-serialization")
+include("kotlinx-atomicfu")
+include("kotlinx-io")

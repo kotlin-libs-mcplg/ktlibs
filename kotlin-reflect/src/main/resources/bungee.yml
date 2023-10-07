@@ -1,0 +1,6 @@
+name: 'ktlibs-${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.kotlin_reflect.BungeeCordEntryPoint
+author: kotlin-libs-mcplg
+depends:
+  - 'ktlibs-kotlin-stdlib'

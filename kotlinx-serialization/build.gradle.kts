@@ -1,6 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
-val kotlinVersion: String by properties
 val kotlinxSerializationVersion: String by properties
 
 version = kotlinxSerializationVersion
@@ -16,16 +15,16 @@ dependencies {
 tasks {
     named<ShadowJar>("shadowJar") {
         dependencies {
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-cbor-jvm:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-properties:$kotlinxSerializationVersion"))
-            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-properties-jvm:$kotlinxSerializationVersion"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-core"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-core-jvm"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-json"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-cbor"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-cbor-jvm"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-protobuf"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-properties"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-serialization-properties-jvm"))
         }
     }
 }
