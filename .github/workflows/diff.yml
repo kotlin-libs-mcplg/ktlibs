@@ -24,6 +24,7 @@ jobs:
     outputs:
       vers: ${{ steps.diff_versions.outputs.vers }}
       matrix: ${{ steps.diff_versions.outputs.matrix }}
+      need_deploy: ${{ steps.diff_versions.outputs.need_deploy }}
 
     steps:
       - uses: actions/checkout@v4
@@ -43,6 +44,7 @@ jobs:
 
   deploy:
     needs: [diff_versions]
+    if: needs.diff_versions.outputs.need_deploy
     uses: ./.github/workflows/deploy.yml
     strategy:
       matrix: ${{ fromJSON(needs.diff_versions.outputs.matrix) }}

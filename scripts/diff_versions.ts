@@ -20,6 +20,7 @@ const matrix = {
 }
 
 core.setOutput('matrix', matrix)
+core.setOutput('need_deploy', matrix.item.length > 0)
 
 async function diff(proj: Project) {
     const vers = await fetchModrinth<ModrinthVersion[]>(`https://api.modrinth.com/v2/project/${proj.modrinth.id}/version`)
