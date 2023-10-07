@@ -13,6 +13,14 @@ Auto sync versions every day (UTC)
   https://modrinth.com/plugin/ktlibs-kotlin-stdlib
 - `kotlinx-coroutines-core`  
   https://modrinth.com/plugin/ktlibs-kotlinx-coroutines-core
+- `kotlinx-serialization`  
+  https://modrinth.com/plugin/kotlinx-serialization  
+  included
+  - `kotlinx-serialization-core`
+  - `kotlinx-serialization-json`
+  - `kotlinx-serialization-cbor`
+  - `kotlinx-serialization-protobuf`
+  - `kotlinx-serialization-properties`
 
 # For players / server manager / users
 
