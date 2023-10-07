@@ -10,10 +10,20 @@
     }
   },
   {
+    "name": "kotlin-reflect",
+    "verKey": "kotlinReflectVersion",
+    "verName": "Ktlibs Kotlin Reflect",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/",
+    "minVer": "1.9.10",
+    "modrinth": {
+      "id": "5czq5Onw"
+    }
+  },
+  {
     "name": "kotlinx-coroutines-core",
     "verKey": "kotlinxCoroutinesVersion",
     "verName": "Ktlibs Kotlinx Coroutines Core",
-    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core/maven-metadata.xml",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core/",
     "minVer": "1.7.3",
     "modrinth": {
       "id": "3Py6dZNv"
@@ -23,7 +33,7 @@
     "name": "kotlinx-serialization",
     "verKey": "kotlinxSerializationVersion",
     "verName": "Ktlibs Kotlinx Serialization",
-    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-serialization-core/maven-metadata.xml",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-serialization-core/",
     "minVer": "1.6.0",
     "modrinth": {
       "id": "uNWhpnrN"
@@ -33,7 +43,7 @@
     "name": "kotlinx-datetime",
     "verKey": "kotlinxDatetimeVersion",
     "verName": "Ktlibs Kotlinx DateTime",
-    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-datetime/maven-metadata.xml",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-datetime/",
     "minVer": "0.4.1",
     "modrinth": {
       "id": "PiEbSeNh"
