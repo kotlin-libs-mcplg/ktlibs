@@ -48,5 +48,35 @@
     "modrinth": {
       "id": "PiEbSeNh"
     }
+  },
+  {
+    "name": "kotlinx-atomicfu",
+    "verKey": "kotlinxAtomicfuVersion",
+    "verName": "Ktlibs Kotlinx Atomicfu",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/atomicfu/",
+    "minVer": "0.22.0",
+    "modrinth": {
+      "id": "2uxqPsSa"
+    }
+  },
+  {
+    "name": "kotlinx-io",
+    "verKey": "kotlinxIoVersion",
+    "verName": "Ktlibs Kotlinx IO",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-io-core/",
+    "minVer": "0.3.0",
+    "modrinth": {
+      "id": "v8Vtc9z1"
+    }
+  },
+  {
+    "name": "kotlinx-collections-immutable",
+    "verKey": "kotlinxCollectionsImmutableVersion",
+    "verName": "Ktlibs Kotlinx Collections Immutable",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-collections-immutable/",
+    "minVer": "0.3.6",
+    "modrinth": {
+      "id": "jolnerBk"
+    }
   }
 ]
