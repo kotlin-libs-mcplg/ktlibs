@@ -4,5 +4,8 @@
   ],
   "kotlinx-coroutines-core": [
     "1.7.3"
+  ],
+  "kotlinx-serialization": [
+    "1.6.0"
   ]
 }
