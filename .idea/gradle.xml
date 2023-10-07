@@ -12,7 +12,9 @@
             <option value="$PROJECT_DIR$/kotlin-reflect" />
             <option value="$PROJECT_DIR$/kotlin-stdlib" />
             <option value="$PROJECT_DIR$/kotlinx-atomicfu" />
+            <option value="$PROJECT_DIR$/kotlinx-collections-immutable" />
             <option value="$PROJECT_DIR$/kotlinx-coroutines-core" />
+            <option value="$PROJECT_DIR$/kotlinx-datetime" />
             <option value="$PROJECT_DIR$/kotlinx-io" />
             <option value="$PROJECT_DIR$/kotlinx-serialization" />
           </set>

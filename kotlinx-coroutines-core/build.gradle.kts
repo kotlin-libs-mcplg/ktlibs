@@ -6,6 +6,7 @@ version = kotlinxCoroutinesVersion
 
 dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinxCoroutinesVersion")
 }
 
 tasks {
@@ -13,6 +14,7 @@ tasks {
         dependencies {
             include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core"))
             include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"))
+            include(dependency("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8"))
         }
     }
 }

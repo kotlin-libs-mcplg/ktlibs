@@ -1,0 +1,7 @@
+name: 'ktlibs-${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.kotlinx_collections_immutable.BukkitEntryPoint
+load: STARTUP
+author: kotlin-libs-mcplg
+depend:
+  - 'ktlibs-kotlin-stdlib'

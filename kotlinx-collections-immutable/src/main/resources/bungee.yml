@@ -1,0 +1,6 @@
+name: 'ktlibs-${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.kotlinx_collections_immutable.BungeeCordEntryPoint
+author: kotlin-libs-mcplg
+depends:
+  - 'ktlibs-kotlin-stdlib'

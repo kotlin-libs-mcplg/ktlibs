@@ -1,0 +1,14 @@
+{
+  "id": "ktlibs-${name}",
+  "name": "ktlibs_${name}",
+  "version": "${version}",
+  "main": "io.coplt.mcplg.ktlibs.kotlinx_collections_immutable.CommonEntryPoint",
+  "authors": [
+    "kotlin-libs-mcplg"
+  ],
+  "dependencies": [
+    {
+      "id": "ktlibs-kotlin-stdlib"
+    }
+  ]
+}
