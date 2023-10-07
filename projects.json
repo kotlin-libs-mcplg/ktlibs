@@ -28,5 +28,15 @@
     "modrinth": {
       "id": "uNWhpnrN"
     }
+  },
+  {
+    "name": "kotlinx-datetime",
+    "verKey": "kotlinxDatetimeVersion",
+    "verName": "Ktlibs Kotlinx DateTime",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-datetime/maven-metadata.xml",
+    "minVer": "1.4.1",
+    "modrinth": {
+      "id": "PiEbSeNh"
+    }
   }
 ]
