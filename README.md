@@ -1,6 +1,6 @@
 # Ktlibs
 
-Spigot plugin for kotlin related libraries
+Spigot / BungeeCord / Velocity plugin for kotlin related libraries
 
 Auto sync versions every day (UTC)
 
@@ -11,6 +11,8 @@ Auto sync versions every day (UTC)
 
 - `kotlin-stdlib`  
   https://modrinth.com/plugin/ktlibs-kotlin-stdlib
+- `kotlinx-coroutines-core`  
+  https://modrinth.com/plugin/ktlibs-kotlinx-coroutines-core
 
 # For players / server manager / users
 

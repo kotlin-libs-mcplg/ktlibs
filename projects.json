@@ -8,5 +8,15 @@
     "modrinth": {
       "id": "b06Uh6mW"
     }
+  },
+  {
+    "name": "kotlinx-coroutines-core",
+    "verKey": "kotlinxCoroutinesVersion",
+    "verName": "Ktlibs Kotlinx Coroutines Core",
+    "maven": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core/maven-metadata.xml",
+    "minVer": "1.7.3",
+    "modrinth": {
+      "id": "3Py6dZNv"
+    }
   }
 ]
