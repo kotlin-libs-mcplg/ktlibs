@@ -1,0 +1,8 @@
+name: 'ktlibs-${name}'
+version: '${version}'
+main: io.coplt.mcplg.ktlibs.ktorm.BukkitEntryPoint
+load: STARTUP
+author: kotlin-libs-mcplg
+depend:
+  - 'ktlibs-kotlin-stdlib'
+  - 'ktlibs-kotlin-reflect'

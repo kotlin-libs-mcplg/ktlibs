@@ -1,0 +1,17 @@
+{
+  "id": "ktlibs-${name}",
+  "name": "ktlibs_${name}",
+  "version": "${version}",
+  "main": "io.coplt.mcplg.ktlibs.ktorm.CommonEntryPoint",
+  "authors": [
+    "kotlin-libs-mcplg"
+  ],
+  "dependencies": [
+    {
+      "id": "ktlibs-kotlin-stdlib"
+    },
+    {
+      "id": "ktlibs-kotlin-reflect"
+    }
+  ]
+}

@@ -73,6 +73,19 @@ Auto sync versions every day (UTC)
 
   - [kotlinx-collections-immutable](https://central.sonatype.com/artifact/org.jetbrains.kotlinx/kotlinx-collections-immutable)
 
+- ### ktorm
+
+  [![](https://img.shields.io/badge/-Ktlibs_Ktorm-16181c?logo=modrinth&logoColor=46d66d&labelColor=16181c)](https://modrinth.com/mod/ktlibs-ktorm)
+  ![](https://img.shields.io/modrinth/v/ktlibs-ktorm)
+
+  - [ktorm-core](https://central.sonatype.com/artifact/org.ktorm/ktorm-core)
+  - [ktorm-support-sqlite](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-sqlite)
+  - [ktorm-support-postgresql](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-postgresql)
+  - [ktorm-support-mysql](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-mysql)
+  - [ktorm-support-sqlserver](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-sqlserver)
+  - [ktorm-support-oracle](https://central.sonatype.com/artifact/org.ktorm/ktorm-support-oracle)
+  - [ktorm-global](https://central.sonatype.com/artifact/org.ktorm/ktorm-global)
+
 # For players / server manager / users
 
 You only need to download this plugin if other plugins depend on it

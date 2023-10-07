@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/kotlinx-datetime" />
             <option value="$PROJECT_DIR$/kotlinx-io" />
             <option value="$PROJECT_DIR$/kotlinx-serialization" />
+            <option value="$PROJECT_DIR$/ktorm" />
           </set>
         </option>
       </GradleProjectSettings>
