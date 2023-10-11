@@ -111,3 +111,72 @@ dependencies {
 }
 
 ```
+
+# Real World Example
+
+```kts
+val kotlinVersion: String by properties
+val kotlinxCoroutinesVersion: String by properties
+val ktormVersion: String by properties
+val spigotVersion: String by properties
+
+repositories {
+    mavenCentral()
+    maven("https://api.modrinth.com/maven")
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/groups/public/")
+}
+
+val pluginImplementation by configurations.creating {}
+
+configurations {
+    compileClasspath {
+        extendsFrom(pluginImplementation)
+    }
+    runtimeClasspath {
+        extendsFrom(pluginImplementation)
+    }
+}
+
+dependencies {
+    compileOnly("org.spigotmc:spigot-api:$spigotVersion")
+
+    pluginImplementation("maven.modrinth:ktlibs-kotlin-stdlib:$kotlinVersion")
+    pluginImplementation("maven.modrinth:ktlibs-kotlin-reflect:$kotlinVersion")
+    pluginImplementation("maven.modrinth:ktlibs-kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    pluginImplementation("maven.modrinth:ktlibs-ktorm:$ktormVersion")
+}
+
+tasks {
+    register("mkPluginsFolder") {
+        outputs.upToDateWhen { false }
+        file("server/plugins").mkdirs()
+    }
+
+    register<Delete>("clearPluginsFolder") {
+        outputs.upToDateWhen { false }
+        delete(file("server/plugins").listFiles()?.filter { it.extension == "jar" })
+    }
+
+    register<Copy>("copyToPluginsFolder") {
+        dependsOn.add("jar")
+        outputs.upToDateWhen { false }
+        from("build/libs")
+        into("server/plugins")
+        include("${project.name}-${project.version}.jar")
+    }
+
+    register<Copy>("copyDepsToPluginsFolder") {
+        outputs.upToDateWhen { false }
+        from(pluginImplementation)
+        into("server/plugins")
+    }
+
+    build {
+        dependsOn.add("mkPluginsFolder")
+        dependsOn.add("clearPluginsFolder")
+        dependsOn.add("copyToPluginsFolder")
+        dependsOn.add("copyDepsToPluginsFolder")
+    }
+}
+```
