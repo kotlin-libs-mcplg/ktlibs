@@ -1,6 +1,7 @@
 {
   "kotlin-stdlib": [
-    "1.9.10"
+    "1.9.10",
+    "1.9.20"
   ],
   "kotlinx-coroutines-core": [
     "1.7.3"
@@ -12,7 +13,8 @@
     "0.4.1"
   ],
   "kotlin-reflect": [
-    "1.9.10"
+    "1.9.10",
+    "1.9.20"
   ],
   "kotlinx-atomicfu": [
     "0.22.0"
