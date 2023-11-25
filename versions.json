@@ -21,7 +21,8 @@
   ],
   "kotlinx-atomicfu": [
     "0.22.0",
-    "0.23.0"
+    "0.23.0",
+    "0.23.1"
   ],
   "kotlinx-collections-immutable": [
     "0.3.6"
