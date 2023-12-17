@@ -27,7 +27,8 @@
     "0.23.1"
   ],
   "kotlinx-collections-immutable": [
-    "0.3.6"
+    "0.3.6",
+    "0.3.7"
   ],
   "kotlinx-io": [
     "0.3.0"
