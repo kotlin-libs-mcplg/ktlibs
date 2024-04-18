@@ -1,5 +1,6 @@
 name: 'ktlibs-${name}'
 version: '${version}'
+api-version: 1.13
 main: io.coplt.mcplg.ktlibs.kotlinx_atomicfu.BukkitEntryPoint
 load: STARTUP
 author: kotlin-libs-mcplg
