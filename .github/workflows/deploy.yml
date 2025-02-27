@@ -70,7 +70,7 @@ jobs:
         env:
           PROJECT_AND_VERSION: ${{ inputs.item }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.deploy_build.outputs.artifact_name }}
           path: ${{ steps.deploy_build.outputs.artifact_path }}
